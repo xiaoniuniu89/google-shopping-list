@@ -27,7 +27,7 @@ if 'DEVELOPMENT' in os.environ:
 else:
     SITE_ID = 3
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    DEBUG = True
+    DEBUG = False
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
