@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-   
+    'shopping_list'
 ]
 
 MIDDLEWARE = [
@@ -153,7 +153,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/demo/products/'
+LOGIN_REDIRECT_URL = '/shopping-list/'
 LOGOUT_REDIRECT_URL = '/'
 
 

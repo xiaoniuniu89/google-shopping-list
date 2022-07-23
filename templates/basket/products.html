@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class='p-1 my-5'>
+    <div class="container mb-5 d-flex flex-column align-items-center">
+        <h2>Hello {{user.username}}</h2>
+        <p>You can add the below products to your basket!</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+            <div class="col col-12 col-sm-6 col-md-4 my-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class='card-title text-center'>{{product.product_title}}</h3>
+                        <p class="card-text">{{product.product_description|truncatechars:50}}</p>
+                        <div class='d-flex justify-content-around align-items-center'>
+                            <span>Price: ${{product.product_price}}</span>
+                            <span class='btn btn-small btn-success'>Add to basket</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
