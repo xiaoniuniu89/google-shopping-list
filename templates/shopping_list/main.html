@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class='p-1 my-5'>
+    <div class="container mb-5 d-flex flex-column align-items-center">
+        <div class='d-flex justify-content-between'>
+            <h2>Hello {{user.username}}</h2>
+        </div>
+        {% if shopping_lists %}
+            <p>You can add and update your shopping lists below!</p>
+        {% else %}
+            <p>Add a list to get started</p>
+        {% endif %}
+        
+
+    </div>
+    <div class="container">
+        <div class="row">
+            {% if shopping_lists %}
+                {% for list in shopping_lists %}
+                <div class="col col-12 col-sm-6 col-md-4 my-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class='card-title text-center'>{{list.list_title}}</h3>
+                            
+                            <ul>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+            
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

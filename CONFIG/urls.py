@@ -22,5 +22,5 @@ urlpatterns = [
     path('', landing, name="landing"),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    
+    path('shopping-list/', include('shopping_list.urls'))
 ]
