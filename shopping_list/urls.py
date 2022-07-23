@@ -7,6 +7,7 @@ from.views import (
     update_title,
     clear_list,
     delete_list,
+    GenerateShoppingListPDF
 )
 
 urlpatterns = [
@@ -21,6 +22,7 @@ htmx_urlpatterns = [
     path('update-list/<int:list>/', update_title, name='update_title'),
     path('clear-list/<int:list>/', clear_list, name='clear_list'),
     path('delete-list/<int:list>/', delete_list, name='delete_list'),
+    path('pdf-shopping-list/<int:pk>/', GenerateShoppingListPDF.as_view(), name='make_pdf'),
 ]
 
 

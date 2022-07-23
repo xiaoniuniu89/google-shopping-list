@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{list.title}}</title>
+    <style>
+
+        .container {
+            font-size: 20px;        
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>{{list.title}}</h1>
+
+        <ul>
+            {% for item in list.shopping_list_items.all %}
+                <li>{{item.name}}</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</body>
+</html>
