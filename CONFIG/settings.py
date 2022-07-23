@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
@@ -14,9 +15,24 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if 'DEVELOPMENT' in os.environ:
+    SITE_ID = 1
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    SITE_ID = 2
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    DEBUG = True
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'herokuapp.com']
 
 
 # Application definition
@@ -80,12 +96,6 @@ WSGI_APPLICATION = 'CONFIG.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
