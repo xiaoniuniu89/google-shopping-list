@@ -1,12 +1,13 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from .models import ShoppingListItem, ShoppingList
+
 # Create your views here.
 
 
 def all_lists(request):
     shopping_lists = request.user.shopping_lists.all()
     return render(request, 'shopping_list/main.html', {'shopping_lists': shopping_lists})
-
 
 
 # htmx views 
@@ -29,3 +30,25 @@ def add_item(request, list):
         item = ShoppingListItem.objects.get_or_create(name=request.POST.get('item'))[0]
         list.shopping_list_items.add(item)
         return render(request, 'shopping_list/partials/list_single.html', {'list': list})
+    
+def update_title(request, list):
+    list = get_object_or_404(ShoppingList, pk=list)
+    if list.user == request.user:
+        list.title = request.POST.get('title')
+        list.save()
+        return HttpResponse()
+    
+def clear_list(request, list):
+    list = get_object_or_404(ShoppingList, pk=list)
+    if list.user == request.user:
+        list.shopping_list_items.clear()
+        list.save()
+        return render(request, 'shopping_list/partials/list_single.html', {'list': list})
+
+def delete_list(request, list):
+    list = get_object_or_404(ShoppingList, pk=list)
+    if list.user == request.user:
+        list.delete()
+        shopping_lists = request.user.shopping_lists.all()
+        return render(request, 'shopping_list/partials/lists.html', {'shopping_lists': shopping_lists})
+    

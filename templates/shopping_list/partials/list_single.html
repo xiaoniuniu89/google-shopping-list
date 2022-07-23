@@ -1,7 +1,12 @@
 {% load static %}
 <div class='card' >
     <div class="card-body">
-        <h3 class='card-title text-center'>{{list.title}}</h3>
+        <div class='d-flex justify-content-around align-items-center'>
+            <input 
+            hx-post="{% url 'update_title' list.pk %}"
+            hx-trigger="keyup changed delay:1000ms"
+            value='{{list.title}}' class='border-bottom border-0 outline-0 form-control' type="text" name='title'>
+        </div>
         <hr>
         <form class="d-flex justify-content-center my-2">
             <input hx-post="{% url 'add_item' list.pk %}" hx-target="#card-{{list.pk}}" name='item' hx-trigger'submit' class="form-control mx-2" placeholder="add to list" type="text">
@@ -22,9 +27,19 @@
     
     </div>
     <div class="card-footer bg-success d-flex justify-content-around">
-        <button class='btn btn-small btn-warning'>Clear List</button>
+
+        <button
+        hx-delete="{% url 'clear_list' list.pk %}"
+        hx-confirm="Are you sure you wish to clear this list?"
+        hx-target="#card-{{list.pk}}"
+        class='btn btn-small btn-warning'>Clear List</button>
+
         <button class='btn btn-small btn-secondary'>PDF</button>
-        <button class='btn btn-small btn-danger'>Delete</button>
+        <button
+        hx-delete="{% url 'delete_list' list.pk %}"
+        hx-confirm="Are you sure you wish to delete this list?"
+        hx-target="#shopping-wrapper"
+        class='btn btn-small btn-danger'>Delete</button>
     </div>
     
 </div>
