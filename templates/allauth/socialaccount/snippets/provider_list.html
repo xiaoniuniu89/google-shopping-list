@@ -3,13 +3,13 @@
 {% get_providers as socialaccount_providers %}
 
 {% for provider in socialaccount_providers %}
-<div class="container col-8 d-flex justify-content-start">
-  <span class='d-flex justify-content-around align-items-center'>
-    <span>Login With</span>
+<div class="container col-12 d-flex justify-content-between  ">
+  <div class='d-flex col-10 justify-content-around align-items-center'>
+    <span>Login with</span>
     <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
        href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
       <img src="{% static 'img/' %}{{provider.name|lower}}.png" alt="">
       </a>
-  </span>
+    </div>
 </div>
 {% endfor %}
