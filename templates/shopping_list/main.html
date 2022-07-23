@@ -31,5 +31,11 @@
 
 
 </section>
+<script>
 
+    document.body.addEventListener('htmx:configRequest', function(evt) {
+        evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
+    });
+
+</script>
 {% endblock content %}

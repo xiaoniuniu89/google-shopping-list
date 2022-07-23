@@ -2,7 +2,8 @@ from django.urls import path
 from.views import (
     all_lists,
     new_list,
-    remove_item
+    remove_item,
+    add_item
 )
 
 urlpatterns = [
@@ -12,7 +13,8 @@ urlpatterns = [
 
 htmx_urlpatterns = [
     path('new-list', new_list, name='new_list'),
-    path('remove-item/<int:list>/<int:item>/', remove_item, name='remove_item')
+    path('add-item/<int:list>/', add_item, name='add_item'),
+    path('remove-item/<int:list>/<int:item>/', remove_item, name='remove_item'),
 ]
 
 
