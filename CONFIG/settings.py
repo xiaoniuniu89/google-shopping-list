@@ -25,7 +25,7 @@ if 'DEVELOPMENT' in os.environ:
         }
     }
 else:
-    SITE_ID = 2
+    SITE_ID = 3
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     DEBUG = True
     DATABASES = {
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crispy_forms',
     'allauth',
     'allauth.account',
