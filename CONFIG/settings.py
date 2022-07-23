@@ -32,7 +32,7 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
-ALLOWED_HOSTS = ['localhost', 'herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'shopping-list-daniel-callaghan.herokuapp.com']
 
 
 # Application definition
