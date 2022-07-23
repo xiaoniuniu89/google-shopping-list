@@ -7,7 +7,7 @@
         <div class='d-flex justify-content-between'>
             <h2>hello, {{user.username}}</h2>
         </div>
-      {% include 'partials/new_list.html' %}
+      {% include 'shopping_list/partials/new_list.html' %}
 
 
         {% if shopping_lists %}
@@ -18,26 +18,18 @@
         
 
     </div>
+
+
+
     <div class="container">
-        <div class="row">
+        <div id="shopping-wrapper" class="row">
             {% if shopping_lists %}
-                {% for list in shopping_lists %}
-                <div class="col col-12 col-sm-6 col-md-4 my-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class='card-title text-center'>{{list.list_title}}</h3>
-                            
-                            <ul>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+                {% include 'shopping_list/partials/lists.html' %}
             {% endif %}
-            
         </div>
     </div>
+
+
 </section>
 
 {% endblock content %}

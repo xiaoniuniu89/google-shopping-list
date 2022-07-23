@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import ShoppingList, ShoppingListItem
 
-# Register your models here.
+# Register models to appear in admin panel.
+admin.site.register(ShoppingList)
+admin.site.register(ShoppingListItem)

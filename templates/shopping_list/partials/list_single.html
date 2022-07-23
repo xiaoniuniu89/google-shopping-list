@@ -1,0 +1,15 @@
+{% load static %}
+<div  style="height: 400px;" class="card">
+    <div class="card-body">
+        <h3 class='card-title text-center'>{{list.title}}</h3>
+        
+  
+        {% for item in list.shopping_list_items.all %}
+            <div class='my-1 d-flex justify-content-between'>
+                <span>{{item.name}}</span>
+                <img hx-post={% url 'remove_item' list.pk item.pk %} hx-target="#card-{{list.pk}}" style='cursor: pointer;' src="{% static 'img/delete.png' %}" alt="">
+            </div>
+        {% endfor %}
+    
+    </div>
+</div>

@@ -1,0 +1,5 @@
+{% for list in shopping_lists %}
+    <div id="card-{{list.pk}}" class="col col-12 col-sm-6 col-md-4 my-2">
+        {% include 'shopping_list/partials/list_single.html' %}
+    </div>
+{% endfor %}
