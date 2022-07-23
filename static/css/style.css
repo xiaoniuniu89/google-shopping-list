@@ -13,3 +13,22 @@ body {
 footer {
     margin-top: auto;
 }
+
+.list-container {
+    scrollbar-width: thin;
+}
+
+.list-container::-webkit-scrollbar {
+    width: .3vw!important;
+    
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background-color: grey!important;
+
+}
+
+.list-container::-webkit-scrollbar-track {
+    background-color: whitesmoke!important;
+
+}

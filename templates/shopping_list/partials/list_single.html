@@ -1,19 +1,29 @@
 {% load static %}
-<div  style="height: 400px;" class="card">
+<div class='card' >
     <div class="card-body">
         <h3 class='card-title text-center'>{{list.title}}</h3>
+        
         <form class="d-flex justify-content-center my-2">
-            <input hx-post="{% url 'add_item' list.pk %}" hx-target="#card-{{list.pk}}" name='item' class="form-control mx-2" placeholder="add to list" type="text">
+            <input hx-post="{% url 'add_item' list.pk %}" hx-target="#card-{{list.pk}}" name='item' hx-trigger'submit' class="form-control mx-2" placeholder="add to list" type="text">
             <button class='btn btn-primary'>+</button>
         </form>
         
   
-        {% for item in list.shopping_list_items.all %}
-            <div class='my-1 d-flex justify-content-between'>
-                <span>{{item.name}}</span>
-                <img hx-post={% url 'remove_item' list.pk item.pk %} hx-target="#card-{{list.pk}}" style='cursor: pointer;' src="{% static 'img/delete.png' %}" alt="">
+        <div >
+            <div style="height: 300px; overflow-y: scroll;" class=" list-container">
+                {% for item in list.shopping_list_items.all %}
+                    <div class='my-1 d-flex justify-content-between'>
+                        <span>{{item.name}}</span>
+                        <img hx-post={% url 'remove_item' list.pk item.pk %} hx-target="#card-{{list.pk}}" style='cursor: pointer;' src="{% static 'img/delete.png' %}" class='px-2'>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     
     </div>
+    <div class="card-footer">
+        <button>edit</button>
+        <button>delete</button>
+    </div>
+    
 </div>

@@ -37,5 +37,7 @@
         evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
     });
 
+    document.body.addEventListener('submit', (e) => {e.preventDefault()})
+
 </script>
 {% endblock content %}
