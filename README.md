@@ -46,7 +46,7 @@ It is using the free dyno on Heroku and takes a few seconds to wake up on the fi
 
 make sure [python](https://www.python.org/) is installed on your machine
 
-[clone](https://docs.github.com/en/repositories/)
+[clone](https://docs.github.com/en/repositories/) the [project github repository](https://github.com/xiaoniuniu89/google-shopping-list)
 
 It is reccomended to set up a virtual environment. [python venv](https://docs.python.org/3/library/venv.html)
 
