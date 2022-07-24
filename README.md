@@ -6,7 +6,7 @@
 
 This app is a simple shopping list app built for the google internship interview.
 
-It uses Django and a postgres database to persist user data between sessions. Users can create an account with an email address or use their google account to create gain access to the site.
+It uses Django and a postgres database to persist user data between sessions. Users can create an account with an email address or use their google account to gain access to the site.
 
 The site also makes special use of a library called htmx to make ajax requests which gives the app a more modern SPA feel.
 
@@ -46,7 +46,7 @@ It is using the free dyno on Heroku and takes a few seconds to wake up on the fi
 
 make sure [python](https://www.python.org/) is installed on your machine
 
-[clone](https://docs.github.com/en/repositories/
+[clone](https://docs.github.com/en/repositories/)
 
 It is reccomended to set up a virtual environment. [python venv](https://docs.python.org/3/library/venv.html)
 
