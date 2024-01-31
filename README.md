@@ -4,16 +4,14 @@
 ## Overview
 <hr>
 
-This app is a simple shopping list app built for the google internship interview.
+This app is a simple shopping list app built for the google internship interview. 
 
-It uses Django and a postgres database to persist user data between sessions. Users can create an account with an email address or use their google account to gain access to the site.
+The site also makes use of a library called htmx to make ajax requests which gives the app a more modern SPA feel.
 
-The site also makes special use of a library called htmx to make ajax requests which gives the app a more modern SPA feel.
+The deployed site is [here](https://shopping-htmx-1258e9d70c6a.herokuapp.com/)
 
+Deployed in DEVELOPMENT mode at the moment. 
 
-The deployed site is [here](https://shopping-list-daniel-callaghan.herokuapp.com/)
-
-It is using the free dyno on Heroku and takes a few seconds to wake up on the first load.
 
 ## Technologies used
 <hr>
@@ -67,7 +65,3 @@ create a super user - "python3 manage.py createsuperuser"
 start the development server - "python3 manage.py runserver"
 
 You should now be up and running, you can log in with the superuser credentials you just created. 
-
-A note about development server
-- Django all auth social login with Google is set up to only run on [deployed site](https://shopping-list-daniel-callaghan.herokuapp.com/)
-- Development server uses sqlLite Database while production uses postgres.
