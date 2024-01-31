@@ -1,4 +1,4 @@
-# Shopping List - Google internship interview project 
+# Shopping List 
 
 
 ## Overview
