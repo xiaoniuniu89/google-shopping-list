@@ -19,20 +19,14 @@ if 'DEVELOPMENT' in os.environ:
     SITE_ID = 1
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+    
 else:
     SITE_ID = 3
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     DEBUG = False
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+   
 
-ALLOWED_HOSTS = ['localhost', 'shopping-list-daniel-callaghan.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'shopping-htmx.herokuapp.com', 'https://fluffy-cod-4rxw9rwwg9rf9j-8000.app.github.dev/', '*']
 
 
 # Application definition
@@ -92,6 +86,13 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 WSGI_APPLICATION = 'CONFIG.wsgi.application'
+
+
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Database
