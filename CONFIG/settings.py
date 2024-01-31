@@ -26,7 +26,7 @@ else:
     DEBUG = False
    
 
-ALLOWED_HOSTS = ['localhost', 'shopping-htmx.herokuapp.com', 'https://fluffy-cod-4rxw9rwwg9rf9j-8000.app.github.dev/', '*']
+ALLOWED_HOSTS = ['localhost', 'shopping-htmx-1258e9d70c6a.herokuapp.com', 'fluffy-cod-4rxw9rwwg9rf9j-8000.app.github.dev']
 
 
 # Application definition
